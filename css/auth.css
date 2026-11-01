@@ -1,13 +1,164 @@
-#auth { min-height: 100dvh; }
-.auth-top { height: 50px; background: var(--bar); border-bottom: 3px solid var(--yellow); display: flex; align-items: center; padding: 0 22px; }
-.auth-wrap { display: flex; flex-direction: column; align-items: center; padding: 34px 16px 40px; }
-.auth-hero { display: flex; align-items: flex-end; gap: 14px; width: 100%; max-width: 380px; margin-bottom: 22px; }
-.chick { width: 84px; height: 84px; flex: none; background: var(--chick) center / contain no-repeat; animation: hop 2.6s ease-in-out infinite; transform-origin: 50% 100%; }
-@keyframes hop { 0%, 70%, 100% { transform: translateY(0) rotate(-4deg); } 80% { transform: translateY(-9px) rotate(3deg); } 90% { transform: translateY(0) rotate(-4deg); } }
-.bubble { position: relative; background: var(--card); border: 2px solid var(--edge); border-radius: 16px 16px 16px 3px; padding: 11px 15px; box-shadow: 4px 4px 0 var(--shadow-c); font-weight: 600; margin-bottom: 14px; }
-.auth-box { width: 100%; max-width: 380px; background: var(--card); border: 2px solid var(--edge); border-radius: 18px 22px 18px 20px; padding: 4px 22px 22px; box-shadow: 6px 6px 0 var(--shadow-c); }
-.auth-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 18px 0; padding: 0; background: none; border: 0; }
-.auth-tabs button { padding: 9px; border: 2px solid var(--edge); border-radius: 10px; background: var(--card); font-weight: 800; color: var(--muted); }
-.auth-tabs button.on { background: var(--yellow); color: #1f1b16; box-shadow: 3px 3px 0 var(--shadow-c); transform: rotate(-1deg); }
-.auth-box .btn { width: 100%; padding: 11px; font-size: 14px; }
-@media (prefers-reduced-motion: reduce) { .chick { animation: none; } }
+#auth {
+    background-color: #edeef0;
+    min-height: 100vh;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Верхняя полоса на экране входа */
+.auth-top {
+    background-color: #4a76a8;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.auth-top .logo {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+}
+
+/* Главная обертка */
+.auth-wrap {
+    max-width: 960px;
+    margin: 60px auto 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Левая часть: маскот и приветствие */
+.auth-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.auth-hero .chick {
+    width: 120px;
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+}
+
+.auth-hero .bubble {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000;
+    margin: 0;
+}
+
+/* Правая часть: Форма авторизации */
+.auth-box {
+    background: #ffffff;
+    border: 1px solid #e7e8ec;
+    border-radius: 2px;
+    padding: 25px;
+}
+
+/* Переключатели Вход / Регистрация */
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid #e7e8ec;
+    margin-bottom: 20px;
+}
+
+.auth-tabs button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #2a5885;
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.auth-tabs button.on {
+    color: #000;
+    border-bottom-color: #5181b8;
+    font-weight: 700;
+}
+
+/* Строки ввода */
+.auth-box .row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.auth-box .row span {
+    color: #656565;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.auth-box input {
+    border: 1px solid #d3d9de;
+    padding: 7px 10px;
+    border-radius: 3px;
+    font-size: 13px;
+    outline: none;
+}
+
+.auth-box input:focus {
+    border-color: #a2b6cc;
+}
+
+/* Поле для @юзернейма */
+.at-wrap {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d3d9de;
+    border-radius: 3px;
+    background: #fff;
+    padding-left: 8px;
+}
+
+.at-wrap b {
+    color: #828282;
+    font-size: 13px;
+    margin-right: 2px;
+}
+
+.at-wrap input {
+    border: none !important;
+    padding: 7px 5px 7px 0;
+    flex: 1;
+}
+
+/* Кнопка отправки */
+#aGo {
+    width: 100%;
+    background-color: #5181b8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#aGo:hover {
+    background-color: #5b88bd;
+}
+
+.err {
+    color: #e51e1e;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
